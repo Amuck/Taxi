@@ -77,7 +77,7 @@ public class SettlementFragment extends Fragment implements View.OnClickListener
         }else if (id == R.id.btnAliPay){
             updateRecordRequest.setPayType(UpdateRecordRequest.PAY_TYPE_ALIPAY);
         }else if (id == R.id.btnPrint){
-
+            updateRecordRequest.setInvoice(UpdateRecordRequest.FAPIAO_STATE_YES);
         } else{
             updateRecordRequest.setPayType(UpdateRecordRequest.PAY_TYPE_WECHAT);
         }

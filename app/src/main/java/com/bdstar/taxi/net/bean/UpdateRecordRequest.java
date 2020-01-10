@@ -13,6 +13,7 @@ import android.os.Parcelable;
  "carHealth":"2",（必要）
  "driverEvaluation":"1",（必要）
  "serviceEvaluation":"1"（必要）
+ "invoice":"0"不打印发票，“1”打印发票
  }
  */
 public class UpdateRecordRequest implements Parcelable {
@@ -22,6 +23,8 @@ public class UpdateRecordRequest implements Parcelable {
 
     public static final String PINCHE_STATE_NOT = "0";
     public static final String PINCHE_STATE_YES = "1";
+    public static final String FAPIAO_STATE_NOT = "0";
+    public static final String FAPIAO_STATE_YES = "1";
 
     private String id;
     private String offAdress;
@@ -31,6 +34,7 @@ public class UpdateRecordRequest implements Parcelable {
     //private String driverEvaluation;
     private String serviceEvaluation;
     private String pincheState;
+    private String invoice = FAPIAO_STATE_NOT;
 
     public UpdateRecordRequest(){}
 
@@ -66,6 +70,14 @@ public class UpdateRecordRequest implements Parcelable {
 
     public void setPincheState(String pincheState) {
         this.pincheState = pincheState;
+    }
+
+    public String getInvoice() {
+        return invoice;
+    }
+
+    public void setInvoice(String invoice) {
+        this.invoice = invoice;
     }
 
     public String getId() {
