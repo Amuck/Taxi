@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.bdstar.taxi.viewmodels.EvaluateViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.EvaluateFragment">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32px"
+            android:text="您的评价会让司机做的更好"
+            android:textColor="#2575FC"
+            android:textSize="@dimen/px_36"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/px_50"
+            android:text="服务质量："
+            android:textColor="#606266"
+            android:textSize="@dimen/px_36"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/rgZhiliang"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="94px"
+            android:text="车内卫生："
+            android:textColor="#606266"
+            android:textSize="@dimen/px_36"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/rgWeisheng"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <RadioGroup
+            android:id="@+id/rgZhiliang"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/px_48"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="@+id/textView">
+
+            <RadioButton
+                android:id="@+id/rbZLGood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/score_good_selector"
+                android:text="优"
+                android:textColor="#000000"
+                android:textSize="@dimen/px_28"
+                android:background="@null"
+                android:checked="true"
+                android:gravity="center_horizontal"
+                android:onCheckedChanged='@{(_, isChecked) -> viewModel.serviceScore(isChecked, "3")}'
+                android:button="@null"/>
+            <RadioButton
+                android:id="@+id/rbZLNormal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/score_good_selector"
+                android:text="良"
+                android:layout_marginStart="@dimen/px_60"
+                android:textColor="#000000"
+                android:textSize="@dimen/px_28"
+                android:gravity="center_horizontal"
+                android:onCheckedChanged='@{(_, isChecked) -> viewModel.serviceScore(isChecked, "2")}'
+                android:button="@null"/>
+            <RadioButton
+                android:id="@+id/rbZLLow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/score_good_selector"
+                android:text="差"
+                android:layout_marginStart="@dimen/px_60"
+                android:textColor="#000000"
+                android:textSize="@dimen/px_28"
+                android:gravity="center_horizontal"
+                android:onCheckedChanged='@{(_, isChecked) -> viewModel.serviceScore(isChecked, "1")}'
+                android:button="@null"/>
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/rgWeisheng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="@dimen/px_48"
+            app:layout_constraintBottom_toBottomOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="@+id/textView2" >
+
+            <RadioButton
+                android:id="@+id/rbWSGood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/score_good_selector"
+                android:text="优"
+                android:textColor="#000000"
+                android:textSize="@dimen/px_28"
+                android:background="@null"
+                android:checked="true"
+                android:gravity="center_horizontal"
+                android:onCheckedChanged='@{(_, isChecked) -> viewModel.carScore(isChecked, "3")}'
+                android:button="@null"/>
+            <RadioButton
+                android:id="@+id/rbWSNormal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/score_good_selector"
+                android:text="良"
+                android:layout_marginStart="@dimen/px_60"
+                android:textColor="#000000"
+                android:textSize="@dimen/px_28"
+                android:gravity="center_horizontal"
+                android:onCheckedChanged='@{(_, isChecked) -> viewModel.carScore(isChecked, "2")}'
+                android:button="@null"/>
+            <RadioButton
+                android:id="@+id/rbWSLow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/score_good_selector"
+                android:text="差"
+                android:onCheckedChanged='@{(_, isChecked) -> viewModel.carScore(isChecked, "1")}'
+                android:layout_marginStart="@dimen/px_60"
+                android:textColor="#000000"
+                android:gravity="center_horizontal"
+                android:textSize="@dimen/px_28"
+                android:button="@null"/>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="@dimen/px_220"
+            android:layout_height="@dimen/px_72"
+            android:layout_marginBottom="@dimen/px_27"
+            android:background="@drawable/direction_bg"
+            android:text="提交"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/px_30"
+            android:onClick="@{() -> viewModel.onSubmit()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            app:layout_constraintVertical_bias="1.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

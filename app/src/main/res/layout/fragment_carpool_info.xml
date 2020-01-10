@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.bdstar.taxi.viewmodels.CarpoolInfoViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:context=".fragments.CarpoolInfoFragment">
+
+        <FrameLayout
+            android:layout_width="360px"
+            android:layout_height="410px"
+            android:layout_marginEnd="20px"
+            android:background="@drawable/passenger_info_bg">
+
+            <LinearLayout
+                android:id="@+id/layoutP1"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="20px"
+                android:paddingLeft="24px"
+                android:paddingRight="24px"
+                android:visibility='@{(viewModel.isAddable &amp;&amp; viewModel.isP1On) || !viewModel.isAddable ? View.VISIBLE : View.INVISIBLE}'>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#303133"
+                    android:textSize="@dimen/px_36"
+                    android:text="乘客一"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#303133"
+                    android:textSize="@dimen/px_36"
+                    android:layout_marginTop="@dimen/px_10"
+                    android:text='@{@string/danjia(viewModel.p1.getUnivalent())}'/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#303133"
+                    android:textSize="@dimen/px_36"
+                    android:layout_marginTop="@dimen/px_10"
+                    android:text='@{@string/licheng(viewModel.p1.getMileage())}'/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#303133"
+                    android:textSize="@dimen/px_36"
+                    android:layout_marginTop="@dimen/px_10"
+                    android:text='@{@string/will_pay(viewModel.p1.getPay())}'/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility='@{!viewModel.isP1On ? View.VISIBLE : View.INVISIBLE}'>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#303133"
+                        android:textSize="@dimen/px_36"
+                        android:text="状态："/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#FF8936"
+                        android:textSize="@dimen/px_36"
+                        android:text="已下车"/>
+                </LinearLayout>
+                <Button
+                    android:layout_width="76px"
+                    android:layout_height="76px"
+                    android:background="@mipmap/btn_switch"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/px_7"
+                    android:onClick="@{() -> viewModel.onP1Off()}"
+                    android:visibility="@{viewModel.isOffAble ? View.VISIBLE : View.INVISIBLE}"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnAddP1"
+                android:layout_width="250px"
+                android:layout_height="@dimen/px_100"
+                android:background="@mipmap/btn_add_passenger"
+                android:layout_gravity="center"
+                android:visibility='@{viewModel.isAddable &amp;&amp; !viewModel.isP1On ? View.VISIBLE : View.INVISIBLE}'/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="360px"
+            android:layout_height="410px"
+            android:background="@drawable/passenger_info_bg">
+
+            <LinearLayout
+                android:id="@+id/layoutP2"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="20px"
+                android:paddingLeft="24px"
+                android:paddingRight="24px"
+                android:visibility='@{(viewModel.isAddable &amp;&amp; viewModel.isP2On) || !viewModel.isAddable ? View.VISIBLE : View.INVISIBLE}'>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#303133"
+                    android:textSize="@dimen/px_36"
+                    android:text="乘客二"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#303133"
+                    android:textSize="@dimen/px_36"
+                    android:layout_marginTop="@dimen/px_10"
+                    android:text='@{@string/danjia(viewModel.p2.getUnivalent())}'/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#303133"
+                    android:textSize="@dimen/px_36"
+                    android:layout_marginTop="@dimen/px_10"
+                    android:text='@{@string/licheng(viewModel.p2.getMileage())}'/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#303133"
+                    android:textSize="@dimen/px_36"
+                    android:layout_marginTop="@dimen/px_10"
+                    android:text='@{@string/will_pay(viewModel.p2.getPay())}'/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility='@{!viewModel.isP2On ? View.VISIBLE : View.INVISIBLE}'>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#303133"
+                        android:textSize="@dimen/px_36"
+                        android:text="状态："/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#FF8936"
+                        android:textSize="@dimen/px_36"
+                        android:text="已下车"/>
+                </LinearLayout>
+                <Button
+                    android:layout_width="76px"
+                    android:layout_height="76px"
+                    android:background="@mipmap/btn_switch"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/px_7"
+                    android:onClick="@{() -> viewModel.onP2Off()}"
+                    android:visibility="@{viewModel.isOffAble ? View.VISIBLE : View.INVISIBLE}"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnAddP2"
+                android:layout_width="250px"
+                android:layout_height="@dimen/px_100"
+                android:background="@mipmap/btn_add_passenger"
+                android:layout_gravity="center"
+                android:onClick="@{() -> viewModel.onP2On()}"
+                android:visibility='@{viewModel.isAddable &amp;&amp; !viewModel.isP2On ? View.VISIBLE : View.INVISIBLE}'/>
+        </FrameLayout>
+    </LinearLayout>
+</layout>

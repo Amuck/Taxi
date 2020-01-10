@@ -1,0 +1,2 @@
+include ':app', ':updatelib'
+rootProject.name='Taxi'

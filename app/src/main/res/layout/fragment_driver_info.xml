@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="com.bdstar.taxi.viewmodels.DriverInfoViewModel"/>
+        <variable
+            name="viewModel"
+            type="DriverInfoViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/background_light"
+        tools:context=".fragments.DriverInfoFragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="36px" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="20px" />
+
+        <ImageView
+            android:id="@+id/imgAvatar"
+            android:layout_width="275px"
+            android:layout_height="360px"
+            android:layout_marginTop="65px"
+            android:scaleType="centerCrop"
+            app:imageUrl="@{viewModel.avatar}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40px"
+            android:text="姓    名："
+            android:textColor="#303133"
+            android:textSize="36px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/imgAvatar"
+            app:layout_constraintTop_toTopOf="@+id/imgAvatar"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.name}"
+            android:textColor="#303133"
+            android:textSize="36px"
+            app:layout_constraintBottom_toBottomOf="@+id/tvName"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tvName"
+            app:layout_constraintTop_toTopOf="@+id/tvName"
+            tools:text="税康功" />
+
+        <TextView
+            android:id="@+id/tvGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22px"
+            android:text="姓    别："
+            android:textColor="#303133"
+            android:textSize="36px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tvName"
+            app:layout_constraintTop_toBottomOf="@+id/tvName"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.gender}"
+            android:textColor="#303133"
+            android:textSize="36px"
+            app:layout_constraintBottom_toBottomOf="@+id/tvGender"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tvGender"
+            app:layout_constraintTop_toTopOf="@+id/tvGender"
+            tools:text="男" />
+
+        <TextView
+            android:id="@+id/tvAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/px_22"
+            android:text="年    龄："
+            android:textColor="#303133"
+            android:textSize="36px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tvGender"
+            app:layout_constraintTop_toBottomOf="@+id/tvGender"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#303133"
+            android:textSize="36px"
+            android:text="@{viewModel.age}"
+            app:layout_constraintBottom_toBottomOf="@+id/tvAge"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tvAge"
+            app:layout_constraintTop_toTopOf="@+id/tvAge"
+            tools:text="39岁" />
+
+        <TextView
+            android:id="@+id/tvCom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22px"
+            android:text="公    司："
+            android:textColor="#303133"
+            android:textSize="@dimen/px_36"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tvAge"
+            app:layout_constraintTop_toBottomOf="@+id/tvAge"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.company}"
+            android:textColor="#303133"
+            android:textSize="36px"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCom"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tvCom"
+            app:layout_constraintTop_toTopOf="@+id/tvCom"
+            tools:text="成都出租车快跑跑有限公司" />
+
+        <TextView
+            android:id="@+id/tvPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22px"
+            android:text="联系电话："
+            android:textColor="#303133"
+            android:textSize="36px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tvCom"
+            app:layout_constraintTop_toBottomOf="@+id/tvCom"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.phone}"
+            android:textColor="#303133"
+            android:textSize="36px"
+            app:layout_constraintBottom_toBottomOf="@+id/tvPhone"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tvPhone"
+            app:layout_constraintTop_toTopOf="@+id/tvPhone"
+            tools:text="13687109871" />
+
+        <TextView
+            android:id="@+id/tvLedState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22px"
+            android:text="顶灯状态："
+            android:textColor="#303133"
+            android:textSize="36px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tvPhone"
+            app:layout_constraintTop_toBottomOf="@+id/tvPhone"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/tvLedStateInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#2CB89C"
+            android:textSize="36px"
+            android:text="@{viewModel.ledState}"
+            app:layout_constraintBottom_toBottomOf="@+id/tvLedState"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/tvLedState"
+            app:layout_constraintTop_toTopOf="@+id/tvLedState"
+            tools:text="空车" />
+
+        <com.bdstar.taxi.widgets.LineWrapRadioGroup
+            android:id="@+id/rgLedStatus"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="20px"
+            android:layout_marginStart="1006px"
+            android:layout_marginTop="123px"
+            android:orientation="horizontal"
+            android:visibility="@{viewModel.status == DriverInfoViewModel.STATUS_EMPTY ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <RadioButton
+                android:id="@+id/rbEmpty"
+                android:layout_width="@dimen/px_250"
+                android:layout_height="@dimen/px_100"
+                android:layout_marginEnd="@dimen/px_7"
+                android:layout_marginBottom="@dimen/px_50"
+                android:checked="true"
+                android:onCheckedChanged="@{(_, isChecked) -> viewModel.onLedStateSelected(isChecked, 0)}"
+                android:background="@drawable/radio_led_empty_selector"
+                android:button="@null"/>
+            <RadioButton
+                android:id="@+id/rbPhone"
+                android:layout_width="@dimen/px_250"
+                android:layout_height="@dimen/px_100"
+                android:layout_marginEnd="@dimen/px_7"
+                android:onCheckedChanged="@{(_, isChecked) -> viewModel.onLedStateSelected(isChecked, 1)}"
+                android:background="@drawable/radio_led_phone_selector"
+                android:button="@null"/>
+            <RadioButton
+                android:id="@+id/rbNet"
+                android:layout_width="@dimen/px_250"
+                android:layout_height="@dimen/px_100"
+                android:onCheckedChanged="@{(_, isChecked) -> viewModel.onLedStateSelected(isChecked, 2)}"
+                android:background="@drawable/radio_led_net_selector"
+                android:button="@null"/>
+            <RadioButton
+                android:id="@+id/rbCharge"
+                android:layout_width="@dimen/px_250"
+                android:layout_height="@dimen/px_100"
+                android:layout_marginEnd="@dimen/px_7"
+                android:onCheckedChanged="@{(_, isChecked) -> viewModel.onLedStateSelected(isChecked, 3)}"
+                android:background="@drawable/radio_led_charge_selector"
+                android:button="@null"/>
+            <RadioButton
+                android:id="@+id/rbFix"
+                android:layout_width="@dimen/px_250"
+                android:layout_height="@dimen/px_100"
+                android:layout_marginEnd="@dimen/px_7"
+                android:onCheckedChanged="@{(_, isChecked) -> viewModel.onLedStateSelected(isChecked, 4)}"
+                android:background="@drawable/radio_led_fix_selector"
+                android:button="@null"/>
+            <RadioButton
+                android:id="@+id/rbExchange"
+                android:layout_width="@dimen/px_250"
+                android:layout_height="@dimen/px_100"
+                android:onCheckedChanged="@{(_, isChecked) -> viewModel.onLedStateSelected(isChecked, 5)}"
+                android:background="@drawable/radio_led_exchange_selector"
+                android:button="@null"/>
+        </com.bdstar.taxi.widgets.LineWrapRadioGroup>
+
+        <FrameLayout
+            android:id="@+id/flayoutCarpool"
+            android:layout_width="688px"
+            android:layout_height="0dp"
+            android:layout_marginEnd="40px"
+            android:visibility="@{viewModel.status == DriverInfoViewModel.STATUS_NO_CARPOOL ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <fragment
+                android:id="@+id/fragmentCarpool"
+                android:name="com.bdstar.taxi.fragments.CarpoolFragment"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/flayoutCarpoolInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/px_10"
+            android:layout_marginEnd="@dimen/px_25"
+            android:visibility="@{viewModel.status == DriverInfoViewModel.STATUS_CARPOOLING ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <fragment
+                android:id="@+id/fragmentCarpoolInfo"
+                android:name="com.bdstar.taxi.fragments.CarpoolInfoFragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+
+        <!--<Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewModel.test()}"
+            android:text="点击测试"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.96"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.96" />-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

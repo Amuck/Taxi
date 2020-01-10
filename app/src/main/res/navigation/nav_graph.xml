@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/driverInfoFragment">
+
+    <fragment
+        android:id="@+id/driverInfoFragment"
+        android:name="com.bdstar.taxi.fragments.DriverInfoFragment"
+        android:label="fragment_driver_info"
+        tools:layout="@layout/fragment_driver_info" >
+        <action
+            android:id="@+id/action_driverInfoFragment_to_settlementFragment"
+            app:destination="@id/settlementFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/evaluateFragment"
+        android:name="com.bdstar.taxi.fragments.EvaluateFragment"
+        android:label="fragment_evaluate"
+        tools:layout="@layout/fragment_evaluate" >
+        <argument
+            android:name="order"
+            app:argType="com.bdstar.taxi.net.bean.UpdateRecordRequest" />
+    </fragment>
+    <fragment
+        android:id="@+id/settlementFragment"
+        android:name="com.bdstar.taxi.fragments.SettlementFragment"
+        android:label="fragment_settlement"
+        tools:layout="@layout/fragment_settlement" >
+        <action
+            android:id="@+id/action_settlementFragment_to_evaluateFragment"
+            app:destination="@id/evaluateFragment" />
+        <argument
+            android:name="order"
+            app:argType="com.bdstar.taxi.net.bean.UpdateRecordRequest" />
+    </fragment>
+</navigation>
